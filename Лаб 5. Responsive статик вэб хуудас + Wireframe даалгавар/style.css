@@ -1,0 +1,145 @@
+
+/* MOBILE FIRST */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background: #f4f7fb;
+    color: #222;
+    overflow-x: hidden;
+}
+
+header {
+    background: #172554;
+    color: white;
+    padding: 18px 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+.hero {
+    padding: 50px 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 25px;
+    background: #dbeafe;
+}
+
+.hero h1 {
+    font-size: 28px;
+}
+
+.profile {
+    font-size: 90px;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #2563eb;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+section {
+    padding: 40px 5%;
+    text-align: center;
+}
+
+.skills {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.skill {
+    background: #2563eb;
+    color: white;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+footer {
+    background: #172554;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* TABLET */
+@media (min-width: 600px) {
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .hero {
+        flex-direction: row;
+        justify-content: space-around;
+        text-align: left;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .skills {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* DESKTOP */
+@media (min-width: 1024px) {
+    header {
+        padding: 20px 10%;
+    }
+
+    .hero {
+        padding: 100px 10%;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    section {
+        padding: 70px 10%;
+    }
+
+    .skills {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
