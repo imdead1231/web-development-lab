@@ -1,0 +1,238 @@
+
+/* DESIGN TOKENS */
+:root {
+    --primary: #6c63ff;
+    --background: #f4f5fa;
+    --surface: #ffffff;
+    --text: #222222;
+    --shadow: 0 5px 20px rgba(0,0,0,0.12);
+    --radius: 15px;
+    --duration: 0.4s;
+}
+
+/* DARK MODE */
+body.dark {
+    --background: #151515;
+    --surface: #252525;
+    --text: #ffffff;
+}
+
+/* GENERAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    transition: background var(--duration), color var(--duration);
+}
+
+.header {
+    padding: 25px;
+    background: var(--primary);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s, background 0.3s;
+}
+
+button:hover {
+    transform: scale(1.07);
+}
+
+button:focus-visible,
+.card:focus-visible {
+    outline: 3px solid var(--primary);
+    outline-offset: 5px;
+}
+
+main {
+    max-width: 1200px;
+    margin: auto;
+    padding: 30px 20px;
+}
+
+section {
+    margin-bottom: 60px;
+}
+
+h2 {
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+/* GALLERY GRID */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.card {
+    background: var(--surface);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    animation: fadeIn 0.8s ease both;
+    animation-delay: calc(var(--i) * 0.15s);
+    transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.card:hover,
+.card:focus-visible {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s;
+}
+
+.card:hover img,
+.card:focus-visible img {
+    transform: scale(1.08);
+}
+
+.card h3 {
+    padding: 15px;
+    text-align: center;
+}
+
+/* KEYFRAMES */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 3D FLIP CARD */
+.flip-container {
+    width: 300px;
+    height: 200px;
+    margin: 20px auto;
+    perspective: 1000px;
+}
+
+.flip-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
+}
+
+.flip-container.flipped .flip-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-front,
+.flip-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    backface-visibility: hidden;
+    background: var(--primary);
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.flip-back {
+    transform: rotateY(180deg);
+    background: #e67e22;
+}
+
+#flipBtn {
+    display: block;
+    margin: 20px auto;
+    background: var(--primary);
+    color: white;
+}
+
+/* VIDEO */
+video {
+    display: block;
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+    border-radius: 12px;
+}
+
+/* IFRAME */
+iframe {
+    width: 100%;
+    height: 350px;
+    border: none;
+    border-radius: 12px;
+}
+
+/* SVG */
+.svg-section {
+    text-align: center;
+}
+
+/* FOOTER */
+footer {
+    padding: 25px;
+    text-align: center;
+    background: var(--primary);
+    color: white;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .header {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ACCESSIBILITY */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

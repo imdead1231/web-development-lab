@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CSS3 animation ашигласан зургийн цомог">
+    <title>Lab 6 | Photo Gallery</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+<header class="header">
+    <h1>📸 Миний зургийн цомог</h1>
+    <button id="themeBtn" aria-label="Өнгөний горим солих">
+        🌙 Dark mode
+    </button>
+</header>
+
+<main>
+    <section class="intro">
+        <h2>Дурсамжийн ертөнц</h2>
+        <p>Миний дуртай зургуудын цуглуулга.</p>
+    </section>
+
+    <section class="gallery-section">
+        <h2>Зургийн цомог</h2>
+
+        <div class="gallery">
+            <article class="card" style="--i:0">
+                <img src="img/photo1.jpg" alt="Байгалийн үзэсгэлэнт газар">
+                <h3>Mongolian Steppe</h3>
+            </article>
+
+            <article class="card" style="--i:1">
+                <img src="img/photo2.jpg" alt="Уулын байгаль">
+                <h3>Mongolian Horses</h3>
+            </article>
+
+            <article class="card" style="--i:2">
+                <img src="img/Desert.webp" alt="Далайн эрэг">
+                <h3>Gobi Desert</h3>
+            </article>
+
+            <article class="card" style="--i:3">
+                <img src="img/photo4.jpg" alt="Хотын дүр зураг">
+                <h3>Altai Mountains</h3>
+            </article>
+
+            <article class="card" style="--i:4">
+                <img src="img/photo5.jpg" alt="Нар жаргах үе">
+                <h3>Khuvsgul Lake</h3>
+            </article>
+
+            <article class="card" style="--i:5">
+                <img src="img/photo6.jpg" alt="Цэцэгс">
+                <h3>Mongol Ger</h3>
+            </article>
+        </div>
+    </section>
+
+    <section class="flip-section">
+        <h2>3D Flip Card</h2>
+
+        <div class="flip-container" id="flipCard">
+            <div class="flip-inner">
+                <div class="flip-front">
+                    <h3>Миний аялал 🌍</h3>
+                    <p>Карт дээр дарж эргүүлнэ үү.</p>
+                </div>
+
+                <div class="flip-back">
+                    <h3>Travel Memories</h3>
+                    <p>Аялал бол хамгийн сайхан дурсамж.</p>
+                </div>
+            </div>
+        </div>
+
+        <button id="flipBtn">Flip card</button>
+    </section>
+
+    <section class="video-section">
+        <h2>Видео цомог</h2>
+
+        <video controls preload="metadata" poster="img/photo1.jpg">
+            <source src="video/video/clip.mp4" type="video/mp4">
+
+            <track
+                src="video/video/clip.mn.vtt"
+                kind="subtitles"
+                srclang="mn"
+                label="Монгол хадмал"
+                default>
+
+        </video>
+    </section>
+
+    <section class="map-section">
+        <h2>Байршил</h2>
+
+        <iframe
+            src="https://www.openstreetmap.org/export/embed.html?bbox=106.85%2C47.90%2C106.95%2C47.95&layer=mapnik"
+            title="Улаанбаатар хотын газрын зураг"
+            loading="lazy"
+            referrerpolicy="no-referrer">
+        </iframe>
+    </section>
+
+    <section class="svg-section">
+        <h2>Inline SVG</h2>
+
+        <svg viewBox="0 0 100 100"
+             width="100"
+             height="100"
+             role="img"
+             aria-labelledby="heartTitle">
+            <title id="heartTitle">Зүрхний дүрс</title>
+            <path
+                d="M50 85 L15 50 A20 20 0 0 1 50 25 A20 20 0 0 1 85 50 Z"
+                fill="#e74c3c"/>
+        </svg>
+    </section>
+</main>
+
+<footer>
+    <p>© 2026 My Photo Gallery | Lab 6</p>
+</footer>
+
+</body>
+</html>
